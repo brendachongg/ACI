@@ -1,0 +1,65 @@
+When adding records into the auditConfig.xml, take note of the following:
+- no comments is allowed, else it will break the .net code
+- the table SQL must be given an alias of t (ie. select t.* from venue_log t)
+- the table SQL must not have any where condition as it will be taken care of in the .net codes
+- the table SQL can contain other joined table if needed (ie. select t.*, u.userName from venue_log t inner join aci_user u on t.createdBy=u.userId)
+- each group must have at least 1 table element
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In C# codes, if delete SQL is used, the string that is passed to the sql command object MUST contain the following BEFORE the delete statement:
+
+declare @usrid varbinary(32)=CAST (@uid AS binary);
+set CONTEXT_INFO @usrid;
+
+where @uid is a parameter that contains the login user id and set in the sql command object. This is to ensure the audit trail can pick up which user perform the deletion.
+
+
+In C# codes, for those sql statements that need to return the identity column value for insert, DO NOT USE the method "output inserted..." as this will not work when there is trigger created for the table in the database, instead append the following AFTER the insert sql:
+
+SELECT CAST(scope_identity() AS int);
+
+Then use executeScalar method to retrieved the ID.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If the CSV file generated does not display properly in client's excel program, check the default delimiter used is comma in the computer. 
+
+To change the separator in all .csv text files:
+1) In Microsoft Windows, click the Start button, and then click Control Panel.
+2) Open the dialog box for changing Regional and Language settings.
+3) Type a new separator in the List separator box. (This setting maybe under the additiona settings button in Formats tab)
+4) Click OK twice.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To fix issues where the excel files cannot be generated, try the following:
+
+DCOM security
+1) Go to control panel -> Administrative tools -> Component Services
+2) Expand from console root, Component services -> Computers -> My Computer -> DCOM Config
+3) Search for Microsoft Excel Application, right click and select Properties
+4) Select Identity tab
+5) Select The Interactive user
+6) Click on Apply
+
+Optionally,
+7) Go to Security tab
+8) Under 3 panel, select customized radio button
+9) Click on Edit
+10) Add the user (usually IIS user) and give permission
+11) Click on OK
+
+Folder security
+1) Right click on the folder where the excel is supposed to be generated, and select Properties
+2) Click on security tab
+3) Ensure the user who is running the .net application pool (or the group IIS_USER) has rights to read and write
+
+(Last resort) If all else fail, use .NET impersonation on the application in IIS
+1) Open IIS manager
+2) Navigate to application
+3) Select Authentication in the content panel (under IIS section)
+4) Enable ASP.NET Impersonation
+5) Right click and select Edit
+6) Select specific user radio button, click on Set
+7) Enter the user credientials (preferably a user that has been granted admin rights)
+8) Click on OK

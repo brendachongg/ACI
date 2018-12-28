@@ -1,0 +1,1361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E973749-A2E0-4EED-835D-B026C280A592}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACI_TMS</RootNamespace>
+    <AssemblyName>ACI_TMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.3.7\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.87.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.87.1\lib\net40\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="absentee-makeup-edit.aspx" />
+    <Content Include="absentee-management.aspx" />
+    <Content Include="absentee-makeup-view.aspx" />
+    <Content Include="absentee-payment-receipt.aspx" />
+    <Content Include="absentee-payment.aspx" />
+    <Content Include="access-control.aspx" />
+    <Content Include="aci-staff-login.aspx" />
+    <Content Include="aci-suspended-list.aspx" />
+    <Content Include="aci-suspension.aspx" />
+    <Content Include="aci-user-view-edit.aspx" />
+    <Content Include="aci-user-list.aspx" />
+    <Content Include="aci-user-new.aspx" />
+    <Content Include="ACITMS.asmx" />
+    <Content Include="applicant-details.aspx" />
+    <Content Include="applicant-details-old.aspx" />
+    <Content Include="applicant-module-exemption.aspx" />
+    <Content Include="applicant-programme-payment.aspx" />
+    <Content Include="applicant-programme-receipt.aspx" />
+    <Content Include="applicant.aspx" />
+    <Content Include="applicant-details-print.aspx" />
+    <Content Include="assessment-edit-module.aspx" />
+    <Content Include="assessment-edit-trainee.aspx" />
+    <Content Include="assessment-management.aspx" />
+    <Content Include="assessment-view-trainee.aspx" />
+    <Content Include="attendance-management.aspx" />
+    <Content Include="attendance-listing.aspx" />
+    <Content Include="attendance-sheet-new.aspx" />
+    <Content Include="audit-trail-export-new.aspx" />
+    <Content Include="batch-edit.aspx" />
+    <Content Include="applicant-quick-registration.aspx" />
+    <Content Include="batch-session-creation.aspx" />
+    <Content Include="batch-view.aspx" />
+    <Content Include="booking-creation.aspx" />
+    <Content Include="booking-edit.aspx" />
+    <Content Include="booking-management.aspx" />
+    <Content Include="booking-view.aspx" />
+    <Content Include="bundle-edit-sessions.aspx" />
+    <Content Include="bundle-edit.aspx" />
+    <Content Include="bundle-module-new-session.ascx" />
+    <Content Include="bundle-module-rem-session.ascx" />
+    <Content Include="bundle-view.aspx" />
+    <Content Include="case-log-creation.aspx" />
+    <Content Include="case-log-management.aspx" />
+    <Content Include="case-log-view-attachment.aspx" />
+    <Content Include="case-log-view.aspx" />
+    <Content Include="css\acitms.css" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\pagination.css" />
+    <Content Include="css\sb-admin-2.css" />
+    <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="daily-payment-finance.aspx" />
+    <Content Include="daily-settlement-finance.aspx" />
+    <Content Include="daily-settlement-verify.aspx" />
+    <Content Include="daily-settlement.aspx" />
+    <Content Include="dashboard.aspx" />
+    <Content Include="data-analytics.aspx" />
+    <Content Include="data-migration.aspx" />
+    <Content Include="day-select.ascx" />
+    <Content Include="enrollment-letter-legend.ascx" />
+    <Content Include="enrollment-letter-managment.aspx" />
+    <Content Include="enrollment-letter-print.aspx" />
+    <Content Include="error.aspx" />
+    <Content Include="access-functions.aspx" />
+    <Content Include="audit-trail-view.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="js\tinymce\license.txt" />
+    <Content Include="js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\help\img\logo.png" />
+    <Content Include="js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="js\tinymce\skins\lightgray\content.mobile.min.css" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="js\tinymce\skins\lightgray\skin.mobile.min.css" />
+    <Content Include="js\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="js\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="js\tinymce\tinymce.min.js" />
+    <Content Include="kiosk\registration-success.aspx" />
+    <Content Include="kiosk\registration.aspx" />
+    <Content Include="kiosk\test.aspx" />
+    <Content Include="module-edit.aspx" />
+    <Content Include="payment-management.aspx" />
+    <Content Include="programme-creation.aspx" />
+    <Content Include="programme-view.aspx" />
+    <Content Include="programme-edit.aspx" />
+    <Content Include="programme-management.aspx" />
+    <Content Include="programme_search.ascx" />
+    <Content Include="registration-fee-management.aspx" />
+    <Content Include="report-export.aspx" />
+    <Content Include="report-management.aspx" />
+    <Content Include="Resource\images\ACISReceiptLogo.jpg" />
+    <Content Include="Resource\images\succeed.png" />
+    <Content Include="Resource\images\success.jpg" />
+    <Content Include="sitin-creation.aspx" />
+    <Content Include="sitin-management.aspx" />
+    <Content Include="sitin-view.aspx" />
+    <Content Include="soa-export.aspx" />
+    <Content Include="soa-process.aspx" />
+    <Content Include="soa-receive.aspx" />
+    <Content Include="soa-view.aspx" />
+    <Content Include="subsidy-management.aspx" />
+    <Content Include="temp1.aspx" />
+    <Content Include="trainee-details.aspx" />
+    <Content Include="trainee-details-print.aspx" />
+    <Content Include="trainee-reassessment-edit.aspx" />
+    <Content Include="trainee-reassessment-management.aspx" />
+    <Content Include="trainee-reassessment-view.aspx" />
+    <Content Include="session-edit.aspx" />
+    <Content Include="js\acitms.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\sb-admin-2.js" />
+    <Content Include="js\sb-admin-2.min.js" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="font-awesome\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="font-awesome\HELP-US-OUT.txt" />
+    <Content Include="css\metisMenu.css" />
+    <Content Include="js\metisMenu.js" />
+    <Content Include="css\metisMenu.min.css" />
+    <Content Include="js\metisMenu.min.js" />
+    <Content Include="css\morris.css" />
+    <Content Include="js\morris.js" />
+    <Content Include="js\morris.min.js" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-3.2.0.min.js" />
+    <Content Include="js\npm.js" />
+    <Content Include="bundle-management.aspx" />
+    <Content Include="batch-management.aspx" />
+    <Content Include="session-management.aspx" />
+    <Content Include="module-management.aspx" />
+    <Content Include="module-search.ascx" />
+    <Content Include="module-creation.aspx" />
+    <Content Include="module-view.aspx" />
+    <Content Include="bundle-creation.aspx" />
+    <Content Include="batch-creation.aspx" />
+    <Content Include="bundle-search.ascx" />
+    <Content Include="packages.config" />
+    <Content Include="aci-dashboard.Master" />
+    <Content Include="font-awesome\css\font-awesome.css.map" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome\less\animated.less" />
+    <Content Include="font-awesome\less\bordered-pulled.less" />
+    <Content Include="font-awesome\less\core.less" />
+    <Content Include="font-awesome\less\extras.less" />
+    <Content Include="font-awesome\less\fixed-width.less" />
+    <Content Include="font-awesome\less\font-awesome.less" />
+    <Content Include="font-awesome\less\icons.less" />
+    <Content Include="font-awesome\less\larger.less" />
+    <Content Include="font-awesome\less\list.less" />
+    <Content Include="font-awesome\less\mixins.less" />
+    <Content Include="font-awesome\less\path.less" />
+    <Content Include="font-awesome\less\rotated-flipped.less" />
+    <Content Include="font-awesome\less\screen-reader.less" />
+    <Content Include="font-awesome\less\spinning.less" />
+    <Content Include="font-awesome\less\stacked.less" />
+    <Content Include="font-awesome\less\variables.less" />
+    <Content Include="font-awesome\scss\font-awesome.scss" />
+    <Content Include="font-awesome\scss\_animated.scss" />
+    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome\scss\_core.scss" />
+    <Content Include="font-awesome\scss\_extras.scss" />
+    <Content Include="font-awesome\scss\_fixed-width.scss" />
+    <Content Include="font-awesome\scss\_icons.scss" />
+    <Content Include="font-awesome\scss\_larger.scss" />
+    <Content Include="font-awesome\scss\_list.scss" />
+    <Content Include="font-awesome\scss\_mixins.scss" />
+    <Content Include="font-awesome\scss\_path.scss" />
+    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome\scss\_screen-reader.scss" />
+    <Content Include="font-awesome\scss\_spinning.scss" />
+    <Content Include="font-awesome\scss\_stacked.scss" />
+    <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="Resource\course_image\beverage-service.jpg" />
+    <Content Include="Resource\course_image\culinary-arts.jpg" />
+    <Content Include="Resource\images\Beverage Service.png" />
+    <Content Include="Resource\images\Culinary Arts.png" />
+    <Content Include="Resource\images\Food And Beverage Service.png" />
+    <Content Include="Resource\images\loader.gif" />
+    <Content Include="Resource\images\Pastry And Bakery.png" />
+    <Content Include="Resource\images\reception.jpg" />
+    <Content Include="Resource\images\sad_face.png" />
+    <Content Include="Resource\images\Thumbs.db" />
+    <Content Include="Resource\images\ACI_Background.png" />
+    <Content Include="Resource\images\ACI_logo.png" />
+    <Content Include="Resource\images\ACI_logoOnly.png" />
+    <Content Include="Resource\images\ACI_logo_small.png" />
+    <Content Include="Resource\images\iPhone.png" />
+    <Content Include="Resource\images\Registration_Chef.png" />
+    <Content Include="Resource\images\ScanQRCode.jpg" />
+    <Content Include="js\custom.js" />
+    <Content Include="font-awesome\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="font-awesome\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="font-awesome\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="font-awesome\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="js\WebForms\DetailsView.js" />
+    <Content Include="js\WebForms\Focus.js" />
+    <Content Include="js\WebForms\GridView.js" />
+    <Content Include="js\WebForms\Menu.js" />
+    <Content Include="js\WebForms\MenuStandards.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="js\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="js\WebForms\SmartNav.js" />
+    <Content Include="js\WebForms\TreeView.js" />
+    <Content Include="js\WebForms\WebForms.js" />
+    <Content Include="js\WebForms\WebParts.js" />
+    <Content Include="js\WebForms\WebUIValidation.js" />
+    <Content Include="session-view.aspx" />
+    <Content Include="temp.aspx" />
+    <Content Include="trainee-repeat-module-edit.aspx" />
+    <Content Include="trainee-repeat-module-management.aspx" />
+    <Content Include="trainee-repeat-module-view.aspx" />
+    <Content Include="trainee-search.ascx" />
+    <Content Include="trainee.aspx" />
+    <Content Include="venue-creation.aspx" />
+    <Content Include="venue-edit.aspx" />
+    <Content Include="venue-management.aspx" />
+    <Content Include="venue-search.ascx" />
+    <Content Include="assessment-view-module.aspx" />
+    <Content Include="venue-view.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="absentee-makeup-edit.aspx.cs">
+      <DependentUpon>absentee-makeup-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absentee-makeup-edit.aspx.designer.cs">
+      <DependentUpon>absentee-makeup-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="absentee-management.aspx.cs">
+      <DependentUpon>absentee-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absentee-management.aspx.designer.cs">
+      <DependentUpon>absentee-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="absentee-makeup-view.aspx.cs">
+      <DependentUpon>absentee-makeup-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absentee-makeup-view.aspx.designer.cs">
+      <DependentUpon>absentee-makeup-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="absentee-payment-receipt.aspx.cs">
+      <DependentUpon>absentee-payment-receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absentee-payment-receipt.aspx.designer.cs">
+      <DependentUpon>absentee-payment-receipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="absentee-payment.aspx.cs">
+      <DependentUpon>absentee-payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absentee-payment.aspx.designer.cs">
+      <DependentUpon>absentee-payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="access-control.aspx.cs">
+      <DependentUpon>access-control.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="access-control.aspx.designer.cs">
+      <DependentUpon>access-control.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aci-user-view-edit.aspx.cs">
+      <DependentUpon>aci-user-view-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-user-view-edit.aspx.designer.cs">
+      <DependentUpon>aci-user-view-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aci-user-list.aspx.cs">
+      <DependentUpon>aci-user-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-user-list.aspx.designer.cs">
+      <DependentUpon>aci-user-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aci-user-new.aspx.cs">
+      <DependentUpon>aci-user-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-user-new.aspx.designer.cs">
+      <DependentUpon>aci-user-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ACITMS.asmx.cs">
+      <DependentUpon>ACITMS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="applicant-details.aspx.cs">
+      <DependentUpon>applicant-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-details.aspx.designer.cs">
+      <DependentUpon>applicant-details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-programme-payment.aspx.cs">
+      <DependentUpon>applicant-programme-payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-programme-payment.aspx.designer.cs">
+      <DependentUpon>applicant-programme-payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-programme-receipt.aspx.cs">
+      <DependentUpon>applicant-programme-receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-programme-receipt.aspx.designer.cs">
+      <DependentUpon>applicant-programme-receipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-details-print.aspx.cs">
+      <DependentUpon>applicant-details-print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-details-print.aspx.designer.cs">
+      <DependentUpon>applicant-details-print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller\Data_Analytics_Management.cs" />
+    <Compile Include="App_Data\Controller\Data_Migration_Managment.cs" />
+    <Compile Include="App_Data\Controller\Assessment_Management.cs" />
+    <Compile Include="App_Data\Controller\Access_Control_Management.cs" />
+    <Compile Include="App_Data\Controller\CaseLog_Management.cs" />
+    <Compile Include="App_Data\Data\DB_DataAnalytics.cs" />
+    <Compile Include="App_Data\Data\DB_Data_Migration.cs" />
+    <Compile Include="App_Data\Data\DB_Access_Control.cs" />
+    <Compile Include="App_Data\Data\DB_CaseLog.cs" />
+    <Compile Include="App_Data\Utility\AccessRight_Constance.cs" />
+    <Compile Include="aci-dashboard.Master.cs">
+      <DependentUpon>aci-dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-dashboard.Master.designer.cs">
+      <DependentUpon>aci-dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="aci-staff-login.aspx.cs">
+      <DependentUpon>aci-staff-login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-staff-login.aspx.designer.cs">
+      <DependentUpon>aci-staff-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aci-suspended-list.aspx.cs">
+      <DependentUpon>aci-suspended-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-suspended-list.aspx.designer.cs">
+      <DependentUpon>aci-suspended-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aci-suspension.aspx.cs">
+      <DependentUpon>aci-suspension.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aci-suspension.aspx.designer.cs">
+      <DependentUpon>aci-suspension.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-details-old.aspx.cs">
+      <DependentUpon>applicant-details-old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-details-old.aspx.designer.cs">
+      <DependentUpon>applicant-details-old.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-module-exemption.aspx.cs">
+      <DependentUpon>applicant-module-exemption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-module-exemption.aspx.designer.cs">
+      <DependentUpon>applicant-module-exemption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant.aspx.cs">
+      <DependentUpon>applicant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant.aspx.designer.cs">
+      <DependentUpon>applicant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller\ACI_Staff_User.cs" />
+    <Compile Include="App_Data\Controller\Applicant_Management.cs" />
+    <Compile Include="App_Data\Controller\Blacklist_Management.cs" />
+    <Compile Include="App_Data\Controller\Batch_Session_Management.cs" />
+    <Compile Include="App_Data\Controller\Programme_Management.cs" />
+    <Compile Include="App_Data\Controller\Finance_Management.cs" />
+    <Compile Include="App_Data\Controller\Module_Management.cs" />
+    <Compile Include="App_Data\Controller\Bundle_Management.cs" />
+    <Compile Include="App_Data\Controller\Venue_Management.cs" />
+    <Compile Include="App_Data\Controller\Trainee_Management.cs" />
+    <Compile Include="App_Data\Data\Database_Connection.cs" />
+    <Compile Include="App_Data\Data\DB_Applicant.cs" />
+    <Compile Include="App_Data\Data\DB_Blacklist.cs" />
+    <Compile Include="App_Data\Data\DB_Programme.cs" />
+    <Compile Include="App_Data\Data\DB_Batch_Session.cs" />
+    <Compile Include="App_Data\Data\DB_Finance.cs" />
+    <Compile Include="App_Data\Data\DB_Module.cs" />
+    <Compile Include="App_Data\Data\DB_Bundle.cs" />
+    <Compile Include="App_Data\Data\DB_Trainee.cs" />
+    <Compile Include="App_Data\Data\DB_Users.cs" />
+    <Compile Include="App_Data\Utility\AES_256.cs" />
+    <Compile Include="App_Data\Utility\Cryptography.cs" />
+    <Compile Include="App_Data\Utility\Utility_Handler.cs" />
+    <Compile Include="App_Data\Utility\General_Constance.cs" />
+    <Compile Include="App_Data\Utility\GridViewGroup.cs" />
+    <Compile Include="App_Data\Utility\GridViewGroupList.cs" />
+    <Compile Include="App_Data\Utility\GridViewHelper.cs" />
+    <Compile Include="App_Data\Utility\GridViewSummary.cs" />
+    <Compile Include="App_Data\Utility\GridViewSummaryList.cs" />
+    <Compile Include="App_Data\Utility\HttpHelper.cs" />
+    <Compile Include="App_Data\Utility\Menu_Link_Model.cs" />
+    <Compile Include="App_Data\Utility\Password_Handler.cs" />
+    <Compile Include="App_Data\Utility\Session_Handler.cs" />
+    <Compile Include="assessment-edit-module.aspx.cs">
+      <DependentUpon>assessment-edit-module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assessment-edit-module.aspx.designer.cs">
+      <DependentUpon>assessment-edit-module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="assessment-edit-trainee.aspx.cs">
+      <DependentUpon>assessment-edit-trainee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assessment-edit-trainee.aspx.designer.cs">
+      <DependentUpon>assessment-edit-trainee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="assessment-management.aspx.cs">
+      <DependentUpon>assessment-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assessment-management.aspx.designer.cs">
+      <DependentUpon>assessment-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="assessment-view-trainee.aspx.cs">
+      <DependentUpon>assessment-view-trainee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assessment-view-trainee.aspx.designer.cs">
+      <DependentUpon>assessment-view-trainee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="attendance-management.aspx.cs">
+      <DependentUpon>attendance-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="attendance-management.aspx.designer.cs">
+      <DependentUpon>attendance-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Utility\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Data\Controller\Attendance_Management.cs" />
+    <Compile Include="attendance-listing.aspx.cs">
+      <DependentUpon>attendance-listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="attendance-listing.aspx.designer.cs">
+      <DependentUpon>attendance-listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="attendance-sheet-new.aspx.cs">
+      <DependentUpon>attendance-sheet-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="attendance-sheet-new.aspx.designer.cs">
+      <DependentUpon>attendance-sheet-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller\AuditTrail_Management.cs" />
+    <Compile Include="audit-trail-export-new.aspx.cs">
+      <DependentUpon>audit-trail-export-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="audit-trail-export-new.aspx.designer.cs">
+      <DependentUpon>audit-trail-export-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="batch-edit.aspx.cs">
+      <DependentUpon>batch-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="batch-edit.aspx.designer.cs">
+      <DependentUpon>batch-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="applicant-quick-registration.aspx.cs">
+      <DependentUpon>applicant-quick-registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="applicant-quick-registration.aspx.designer.cs">
+      <DependentUpon>applicant-quick-registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="batch-session-creation.aspx.cs">
+      <DependentUpon>batch-session-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="batch-session-creation.aspx.designer.cs">
+      <DependentUpon>batch-session-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="batch-view.aspx.cs">
+      <DependentUpon>batch-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="batch-view.aspx.designer.cs">
+      <DependentUpon>batch-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking-creation.aspx.cs">
+      <DependentUpon>booking-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booking-creation.aspx.designer.cs">
+      <DependentUpon>booking-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking-edit.aspx.cs">
+      <DependentUpon>booking-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booking-edit.aspx.designer.cs">
+      <DependentUpon>booking-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking-management.aspx.cs">
+      <DependentUpon>booking-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booking-management.aspx.designer.cs">
+      <DependentUpon>booking-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking-view.aspx.cs">
+      <DependentUpon>booking-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booking-view.aspx.designer.cs">
+      <DependentUpon>booking-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-edit-sessions.aspx.cs">
+      <DependentUpon>bundle-edit-sessions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-edit-sessions.aspx.designer.cs">
+      <DependentUpon>bundle-edit-sessions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-edit.aspx.cs">
+      <DependentUpon>bundle-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-edit.aspx.designer.cs">
+      <DependentUpon>bundle-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-module-new-session.ascx.cs">
+      <DependentUpon>bundle-module-new-session.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-module-new-session.ascx.designer.cs">
+      <DependentUpon>bundle-module-new-session.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-module-rem-session.ascx.cs">
+      <DependentUpon>bundle-module-rem-session.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-module-rem-session.ascx.designer.cs">
+      <DependentUpon>bundle-module-rem-session.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-view.aspx.cs">
+      <DependentUpon>bundle-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-view.aspx.designer.cs">
+      <DependentUpon>bundle-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Data\DB_Venue.cs" />
+    <Compile Include="App_Data\Data\DB_Attendance.cs" />
+    <Compile Include="App_Data\Data\DB_Assessment.cs" />
+    <Compile Include="App_Data\Utility\CodeReference.cs" />
+    <Compile Include="case-log-creation.aspx.cs">
+      <DependentUpon>case-log-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="case-log-creation.aspx.designer.cs">
+      <DependentUpon>case-log-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="case-log-management.aspx.cs">
+      <DependentUpon>case-log-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="case-log-management.aspx.designer.cs">
+      <DependentUpon>case-log-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="case-log-view-attachment.aspx.cs">
+      <DependentUpon>case-log-view-attachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="case-log-view-attachment.aspx.designer.cs">
+      <DependentUpon>case-log-view-attachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="case-log-view.aspx.cs">
+      <DependentUpon>case-log-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="case-log-view.aspx.designer.cs">
+      <DependentUpon>case-log-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="daily-payment-finance.aspx.cs">
+      <DependentUpon>daily-payment-finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daily-payment-finance.aspx.designer.cs">
+      <DependentUpon>daily-payment-finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="daily-settlement-finance.aspx.cs">
+      <DependentUpon>daily-settlement-finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daily-settlement-finance.aspx.designer.cs">
+      <DependentUpon>daily-settlement-finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="daily-settlement-verify.aspx.cs">
+      <DependentUpon>daily-settlement-verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daily-settlement-verify.aspx.designer.cs">
+      <DependentUpon>daily-settlement-verify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="daily-settlement.aspx.cs">
+      <DependentUpon>daily-settlement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daily-settlement.aspx.designer.cs">
+      <DependentUpon>daily-settlement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller\Daily_Settlement_Management.cs" />
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="data-analytics.aspx.cs">
+      <DependentUpon>data-analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="data-analytics.aspx.designer.cs">
+      <DependentUpon>data-analytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="data-migration.aspx.cs">
+      <DependentUpon>data-migration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="data-migration.aspx.designer.cs">
+      <DependentUpon>data-migration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="day-select.ascx.cs">
+      <DependentUpon>day-select.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="day-select.ascx.designer.cs">
+      <DependentUpon>day-select.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Data\DB_AuditTrail.cs" />
+    <Compile Include="App_Data\Data\DB_Report.cs" />
+    <Compile Include="App_Data\Utility\Email_Handler.cs" />
+    <Compile Include="App_Data\Data\DB_Daily_Settlement.cs" />
+    <Compile Include="enrollment-letter-legend.ascx.cs">
+      <DependentUpon>enrollment-letter-legend.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enrollment-letter-legend.ascx.designer.cs">
+      <DependentUpon>enrollment-letter-legend.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="enrollment-letter-managment.aspx.cs">
+      <DependentUpon>enrollment-letter-managment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enrollment-letter-managment.aspx.designer.cs">
+      <DependentUpon>enrollment-letter-managment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="enrollment-letter-print.aspx.cs">
+      <DependentUpon>enrollment-letter-print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enrollment-letter-print.aspx.designer.cs">
+      <DependentUpon>enrollment-letter-print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="access-functions.aspx.cs">
+      <DependentUpon>access-functions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="access-functions.aspx.designer.cs">
+      <DependentUpon>access-functions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="audit-trail-view.aspx.cs">
+      <DependentUpon>audit-trail-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="audit-trail-view.aspx.designer.cs">
+      <DependentUpon>audit-trail-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="kiosk\aci-kiosk.Master.cs">
+      <DependentUpon>aci-kiosk.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kiosk\aci-kiosk.Master.designer.cs">
+      <DependentUpon>aci-kiosk.Master</DependentUpon>
+    </Compile>
+    <Compile Include="kiosk\registration-success.aspx.cs">
+      <DependentUpon>registration-success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kiosk\registration-success.aspx.designer.cs">
+      <DependentUpon>registration-success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kiosk\registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kiosk\registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kiosk\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kiosk\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="module-edit.aspx.cs">
+      <DependentUpon>module-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module-edit.aspx.designer.cs">
+      <DependentUpon>module-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payment-management.aspx.cs">
+      <DependentUpon>payment-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment-management.aspx.designer.cs">
+      <DependentUpon>payment-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="programme-creation.aspx.cs">
+      <DependentUpon>programme-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="programme-creation.aspx.designer.cs">
+      <DependentUpon>programme-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="programme-view.aspx.cs">
+      <DependentUpon>programme-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="programme-view.aspx.designer.cs">
+      <DependentUpon>programme-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="programme-edit.aspx.cs">
+      <DependentUpon>programme-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="programme-edit.aspx.designer.cs">
+      <DependentUpon>programme-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="programme-management.aspx.cs">
+      <DependentUpon>programme-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="programme-management.aspx.designer.cs">
+      <DependentUpon>programme-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="programme_search.ascx.cs">
+      <DependentUpon>programme_search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="programme_search.ascx.designer.cs">
+      <DependentUpon>programme_search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="registration-fee-management.aspx.cs">
+      <DependentUpon>registration-fee-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registration-fee-management.aspx.designer.cs">
+      <DependentUpon>registration-fee-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="report-export.aspx.cs">
+      <DependentUpon>report-export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report-export.aspx.designer.cs">
+      <DependentUpon>report-export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="report-management.aspx.cs">
+      <DependentUpon>report-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report-management.aspx.designer.cs">
+      <DependentUpon>report-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller\Report_Management.cs" />
+    <Compile Include="sitin-creation.aspx.cs">
+      <DependentUpon>sitin-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitin-creation.aspx.designer.cs">
+      <DependentUpon>sitin-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sitin-management.aspx.cs">
+      <DependentUpon>sitin-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitin-management.aspx.designer.cs">
+      <DependentUpon>sitin-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sitin-view.aspx.cs">
+      <DependentUpon>sitin-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitin-view.aspx.designer.cs">
+      <DependentUpon>sitin-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soa-export.aspx.cs">
+      <DependentUpon>soa-export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soa-export.aspx.designer.cs">
+      <DependentUpon>soa-export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soa-process.aspx.cs">
+      <DependentUpon>soa-process.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soa-process.aspx.designer.cs">
+      <DependentUpon>soa-process.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soa-receive.aspx.cs">
+      <DependentUpon>soa-receive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soa-receive.aspx.designer.cs">
+      <DependentUpon>soa-receive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soa-view.aspx.cs">
+      <DependentUpon>soa-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soa-view.aspx.designer.cs">
+      <DependentUpon>soa-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsidy-management.aspx.cs">
+      <DependentUpon>subsidy-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsidy-management.aspx.designer.cs">
+      <DependentUpon>subsidy-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temp1.aspx.cs">
+      <DependentUpon>temp1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temp1.aspx.designer.cs">
+      <DependentUpon>temp1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-details.aspx.cs">
+      <DependentUpon>trainee-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-details.aspx.designer.cs">
+      <DependentUpon>trainee-details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-details-print.aspx.cs">
+      <DependentUpon>trainee-details-print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-details-print.aspx.designer.cs">
+      <DependentUpon>trainee-details-print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-reassessment-edit.aspx.cs">
+      <DependentUpon>trainee-reassessment-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-reassessment-edit.aspx.designer.cs">
+      <DependentUpon>trainee-reassessment-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-reassessment-management.aspx.cs">
+      <DependentUpon>trainee-reassessment-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-reassessment-management.aspx.designer.cs">
+      <DependentUpon>trainee-reassessment-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-reassessment-view.aspx.cs">
+      <DependentUpon>trainee-reassessment-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-reassessment-view.aspx.designer.cs">
+      <DependentUpon>trainee-reassessment-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="session-edit.aspx.cs">
+      <DependentUpon>session-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="session-edit.aspx.designer.cs">
+      <DependentUpon>session-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Utility\Log_Handler.cs" />
+    <Compile Include="bundle-management.aspx.cs">
+      <DependentUpon>bundle-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-management.aspx.designer.cs">
+      <DependentUpon>bundle-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="batch-management.aspx.cs">
+      <DependentUpon>batch-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="batch-management.aspx.designer.cs">
+      <DependentUpon>batch-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="session-management.aspx.cs">
+      <DependentUpon>session-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="session-management.aspx.designer.cs">
+      <DependentUpon>session-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="module-management.aspx.cs">
+      <DependentUpon>module-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module-management.aspx.designer.cs">
+      <DependentUpon>module-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="module-search.ascx.cs">
+      <DependentUpon>module-search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module-search.ascx.designer.cs">
+      <DependentUpon>module-search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="module-creation.aspx.cs">
+      <DependentUpon>module-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module-creation.aspx.designer.cs">
+      <DependentUpon>module-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="module-view.aspx.cs">
+      <DependentUpon>module-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module-view.aspx.designer.cs">
+      <DependentUpon>module-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-creation.aspx.cs">
+      <DependentUpon>bundle-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-creation.aspx.designer.cs">
+      <DependentUpon>bundle-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="batch-creation.aspx.cs">
+      <DependentUpon>batch-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="batch-creation.aspx.designer.cs">
+      <DependentUpon>batch-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bundle-search.ascx.cs">
+      <DependentUpon>bundle-search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle-search.ascx.designer.cs">
+      <DependentUpon>bundle-search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="session-view.aspx.cs">
+      <DependentUpon>session-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="session-view.aspx.designer.cs">
+      <DependentUpon>session-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temp.aspx.cs">
+      <DependentUpon>temp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temp.aspx.designer.cs">
+      <DependentUpon>temp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-repeat-module-edit.aspx.cs">
+      <DependentUpon>trainee-repeat-module-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-repeat-module-edit.aspx.designer.cs">
+      <DependentUpon>trainee-repeat-module-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-repeat-module-management.aspx.cs">
+      <DependentUpon>trainee-repeat-module-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-repeat-module-management.aspx.designer.cs">
+      <DependentUpon>trainee-repeat-module-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-repeat-module-view.aspx.cs">
+      <DependentUpon>trainee-repeat-module-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-repeat-module-view.aspx.designer.cs">
+      <DependentUpon>trainee-repeat-module-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee-search.ascx.cs">
+      <DependentUpon>trainee-search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee-search.ascx.designer.cs">
+      <DependentUpon>trainee-search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="trainee.aspx.cs">
+      <DependentUpon>trainee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trainee.aspx.designer.cs">
+      <DependentUpon>trainee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="venue-creation.aspx.cs">
+      <DependentUpon>venue-creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venue-creation.aspx.designer.cs">
+      <DependentUpon>venue-creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="venue-edit.aspx.cs">
+      <DependentUpon>venue-edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venue-edit.aspx.designer.cs">
+      <DependentUpon>venue-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="venue-management.aspx.cs">
+      <DependentUpon>venue-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venue-management.aspx.designer.cs">
+      <DependentUpon>venue-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="venue-search.ascx.cs">
+      <DependentUpon>venue-search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venue-search.ascx.designer.cs">
+      <DependentUpon>venue-search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="assessment-view-module.aspx.cs">
+      <DependentUpon>assessment-view-module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assessment-view-module.aspx.designer.cs">
+      <DependentUpon>assessment-view-module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="venue-view.aspx.cs">
+      <DependentUpon>venue-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venue-view.aspx.designer.cs">
+      <DependentUpon>venue-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NYPStaffLogin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\tinymce\langs\readme.md" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="kiosk\aci-kiosk.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\NYPStaffLogin\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\NYPStaffLogin\StaffLogin.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\NYPStaffLogin\WSStaffLogin.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicantsDocuments\" />
+    <Folder Include="Files\" />
+    <Folder Include="log\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://staffappsut.nyp.edu.sg:8080/WSStaffLogin_usrtest/StaffLogin%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NYPStaffLogin\</RelPath>
+      <UpdateFromURL>http://staffappsut.nyp.edu.sg:8080/WSStaffLogin_usrtest/StaffLogin%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ACI_TMS_NYPStaffLogin_WSStaffLogin</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57271</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57271/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

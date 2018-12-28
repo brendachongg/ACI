@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://WSStaffLogin/" name="WSStaffLogin" targetNamespace="http://WSStaffLogin/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://staffappsut.nyp.edu.sg:8080/WSStaffLogin_usrtest/StaffLogin?xsd=1" namespace="http://WSStaffLogin/" />
+    </xsd:schema>
+  </types>
+  <message name="getErrMsg">
+    <part name="parameters" element="tns:getErrMsg" />
+  </message>
+  <message name="getErrMsgResponse">
+    <part name="parameters" element="tns:getErrMsgResponse" />
+  </message>
+  <message name="authStaffPortal">
+    <part name="parameters" element="tns:authStaffPortal" />
+  </message>
+  <message name="authStaffPortalResponse">
+    <part name="parameters" element="tns:authStaffPortalResponse" />
+  </message>
+  <message name="valLoginEnc">
+    <part name="parameters" element="tns:valLoginEnc" />
+  </message>
+  <message name="valLoginEncResponse">
+    <part name="parameters" element="tns:valLoginEncResponse" />
+  </message>
+  <message name="getLoginEmpNo">
+    <part name="parameters" element="tns:getLoginEmpNo" />
+  </message>
+  <message name="getLoginEmpNoResponse">
+    <part name="parameters" element="tns:getLoginEmpNoResponse" />
+  </message>
+  <message name="valLoginBySch">
+    <part name="parameters" element="tns:valLoginBySch" />
+  </message>
+  <message name="valLoginBySchResponse">
+    <part name="parameters" element="tns:valLoginBySchResponse" />
+  </message>
+  <message name="valLoginByOthers">
+    <part name="parameters" element="tns:valLoginByOthers" />
+  </message>
+  <message name="valLoginByOthersResponse">
+    <part name="parameters" element="tns:valLoginByOthersResponse" />
+  </message>
+  <message name="getStaffDept">
+    <part name="parameters" element="tns:getStaffDept" />
+  </message>
+  <message name="getStaffDeptResponse">
+    <part name="parameters" element="tns:getStaffDeptResponse" />
+  </message>
+  <message name="getStaffInfo">
+    <part name="parameters" element="tns:getStaffInfo" />
+  </message>
+  <message name="getStaffInfoResponse">
+    <part name="parameters" element="tns:getStaffInfoResponse" />
+  </message>
+  <message name="valLogin">
+    <part name="parameters" element="tns:valLogin" />
+  </message>
+  <message name="valLoginResponse">
+    <part name="parameters" element="tns:valLoginResponse" />
+  </message>
+  <portType name="StaffLogin">
+    <operation name="getErrMsg">
+      <input message="tns:getErrMsg" />
+      <output message="tns:getErrMsgResponse" />
+    </operation>
+    <operation name="authStaffPortal">
+      <input message="tns:authStaffPortal" />
+      <output message="tns:authStaffPortalResponse" />
+    </operation>
+    <operation name="valLoginEnc">
+      <input message="tns:valLoginEnc" />
+      <output message="tns:valLoginEncResponse" />
+    </operation>
+    <operation name="getLoginEmpNo">
+      <input message="tns:getLoginEmpNo" />
+      <output message="tns:getLoginEmpNoResponse" />
+    </operation>
+    <operation name="valLoginBySch">
+      <input message="tns:valLoginBySch" />
+      <output message="tns:valLoginBySchResponse" />
+    </operation>
+    <operation name="valLoginByOthers">
+      <input message="tns:valLoginByOthers" />
+      <output message="tns:valLoginByOthersResponse" />
+    </operation>
+    <operation name="getStaffDept">
+      <input message="tns:getStaffDept" />
+      <output message="tns:getStaffDeptResponse" />
+    </operation>
+    <operation name="getStaffInfo">
+      <input message="tns:getStaffInfo" />
+      <output message="tns:getStaffInfoResponse" />
+    </operation>
+    <operation name="valLogin">
+      <input message="tns:valLogin" />
+      <output message="tns:valLoginResponse" />
+    </operation>
+  </portType>
+  <binding name="StaffLoginBinding" type="tns:StaffLogin">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getErrMsg">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="authStaffPortal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="valLoginEnc">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getLoginEmpNo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="valLoginBySch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="valLoginByOthers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getStaffDept">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getStaffInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="valLogin">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSStaffLogin">
+    <port name="StaffLogin" binding="tns:StaffLoginBinding">
+      <soap:address location="http://staffappsut.nyp.edu.sg:8080/WSStaffLogin_usrtest/StaffLogin" />
+    </port>
+  </service>
+</definitions>

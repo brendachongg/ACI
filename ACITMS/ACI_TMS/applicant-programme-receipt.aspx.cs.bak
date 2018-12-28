@@ -1,0 +1,208 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using LogicLayer;
+using System.Data;
+using GeneralLayer;
+using System.Drawing;
+using System.Globalization;
+using System.Configuration;
+
+namespace ACI_TMS
+{
+    public partial class applicant_programme_receipt : BasePage
+    {
+        public const string PAGE_NAME = "applicant-programme-receipt.aspx";
+
+        public const string APPLICANT_QUERY = "a";
+        public const string TRAINEE_QUERY = "tr";
+        public const string TYPE_QUERY = "t";
+        public const string PAYMENT_QUERY = "p";
+
+        private const string AMOUNT_FORMAT_STR = "#,##0.00";
+
+        private Finance_Management fm = new Finance_Management();
+
+        private decimal nett = 0;
+
+        public applicant_programme_receipt()
+            : base(PAGE_NAME, AccessRight_Constance.PAYMT_VIEW)
+        {
+
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Request.QueryString[PAYMENT_QUERY] == null || Request.QueryString[PAYMENT_QUERY] == "")
+                {
+                    redirectToErrorPg("Missing receipt information.");
+                    return;
+                }
+
+                if ((Request.QueryString[APPLICANT_QUERY] == null || Request.QueryString[APPLICANT_QUERY] == "") && (Request.QueryString[TRAINEE_QUERY] == null || Request.QueryString[TRAINEE_QUERY] == ""))
+                {
+                    redirectToErrorPg("Missing applicant/trainee information.");
+                    return;
+                }
+
+                if (Request.QueryString[TYPE_QUERY] == null || Request.QueryString[TYPE_QUERY] == "" || HttpUtility.UrlDecode(Request.QueryString[TYPE_QUERY]) == PaymentType.BOTH.ToString())
+                    hfType.Value = PaymentType.BOTH.ToString();
+                else if (HttpUtility.UrlDecode(Request.QueryString[TYPE_QUERY]) == PaymentType.REG.ToString())
+                    hfType.Value = PaymentType.REG.ToString();
+                else
+                    hfType.Value = PaymentType.PROG.ToString();
+
+                if (Request.QueryString[APPLICANT_QUERY] != null && Request.QueryString[APPLICANT_QUERY] != "")
+                    lbApplicantId.Text = HttpUtility.UrlDecode(Request.QueryString[APPLICANT_QUERY]);
+                else lbTraineeId.Text = HttpUtility.UrlDecode(Request.QueryString[TRAINEE_QUERY]);
+
+                PrevPage = applicant_programme_payment.PAGE_NAME + "?" + (lbApplicantId.Text == "" ? applicant_programme_payment.TRAINEE_QUERY + "=" + Request.QueryString[TRAINEE_QUERY] 
+                    : applicant_programme_payment.APPLICANT_QUERY + "=" + Request.QueryString[APPLICANT_QUERY]) + "&" + applicant_programme_payment.TYPE_QUERY + "=" + HttpUtility.UrlEncode(hfType.Value);
+
+                DataTable dtTypes = lbApplicantId.Text == "" ? fm.getTraineeClassPaymentTypes(lbTraineeId.Text) : fm.getApplnClassPaymentTypes(lbApplicantId.Text);
+                if (dtTypes == null)
+                {
+                    redirectToErrorPg("Error retrieving payment details.");
+                    return;
+                }
+                if (dtTypes.Rows.Count > 0)
+                {
+                    //check if previous payment record is of the same type, if not, do not allow to proceed
+                    if (hfType.Value == PaymentType.BOTH.ToString() && dtTypes.Rows[0][0].ToString() != PaymentType.BOTH.ToString())
+                    {
+                        redirectToErrorPg("Payment has already been split, unable to show combined receipt.");
+                        return;
+                    }
+                    else if (hfType.Value != PaymentType.BOTH.ToString() && dtTypes.Rows[0][0].ToString() == PaymentType.BOTH.ToString())
+                    {
+                        redirectToErrorPg("Payment has already been combined, unable to show split receipt.");
+                        return;
+                    }
+                }
+
+                lbGSTReg.Text = ConfigurationManager.AppSettings["GSTRegNum"].ToString();
+                loadApplicantOrTraineeDetails();
+
+                if (hfType.Value == PaymentType.REG.ToString())
+                {
+                    trProg.Visible = false;
+                    //rpModules.Visible = false;
+                    trSubsidy.Visible = false;
+                }
+                else
+                {
+                    if (hfType.Value == PaymentType.PROG.ToString()) trReg.Visible = false;
+                    //loadBatchModules();
+                }
+
+                loadPaymentDetail(int.Parse(Request.QueryString[PAYMENT_QUERY]));
+            }
+            else
+            {
+                PrevPage = applicant_programme_payment.PAGE_NAME + "?" + (lbApplicantId.Text == "" ? applicant_programme_payment.TRAINEE_QUERY + "=" + HttpUtility.UrlEncode(lbTraineeId.Text)
+                    : applicant_programme_payment.APPLICANT_QUERY + "=" + HttpUtility.UrlEncode(lbApplicantId.Text))
+                    + "&" + applicant_programme_payment.TYPE_QUERY + "=" + HttpUtility.UrlEncode(hfType.Value);
+            }
+        }
+
+        private void loadPaymentDetail(int paymentId)
+        {
+            DataTable dt = fm.getClassPaymentDetail(paymentId);
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                redirectToErrorPg("Error retrieving payment detail.");
+                return;
+            }
+
+            DataRow dr = dt.Rows[0];
+            lbPaymentDate.Text = dr["paymentDate"].ToString();
+            lbReceiptNum.Text = dr["receiptNumber"].ToString();
+            lbPaymentMode.Text = dr["paymentModeDisp"].ToString();
+            lbAmtPaid.Text = "S$" + ((decimal)dr["paymentAmount"]).ToString(AMOUNT_FORMAT_STR);
+            lbTotal.Text = "S$" + nett.ToString(AMOUNT_FORMAT_STR);
+
+            if (nett == (decimal)dr["paymentAmount"])
+                lbPartialPayment.Visible = false;
+            else lbPartialPayment.Visible = true;
+
+            if (dr["paymentRemarks"] != DBNull.Value) lbPaymentRemarks.Text = "(" + dr["paymentRemarks"].ToString() + ")";
+        }
+
+        private void loadApplicantOrTraineeDetails()
+        {
+            DataTable dt = lbApplicantId.Text == "" ? (new Trainee_Management()).getTraineeDetailsForPayment(lbTraineeId.Text) : (new Applicant_Management()).getApplicantDetailsForPayment(lbApplicantId.Text);
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                redirectToErrorPg("Error retrieving applicant's or trainee's details.");
+                return;
+            }
+
+            DataRow dr = dt.Rows[0];
+            lbProgTitle.Text = dr["programmeTitle"].ToString();
+            lbProgCseCode.Text = dr["courseCode"].ToString();
+            lbBatchProjCode.Text = dr["projectCode"].ToString();
+            lbBatchCode.Text = dr["batchCode"].ToString();
+            lbBatchStart.Text = dr["programmeStartDate"].ToString();
+            lbBatchEnd.Text = dr["programmeCompletionDate"].ToString();
+            hfBundleId.Value = dr["bundleId"].ToString();
+            lbApplicantName.Text = dr["fullName"].ToString();
+
+            if (dr["selfSponsored"].ToString() == Sponsorship.COMP.ToString())
+            {
+                pCompany.Visible = true;
+                lbCompany.Text = dr["companyName"].ToString();
+            }
+
+            if (hfType.Value != PaymentType.REG.ToString())
+            {
+                lbProgFee.Text = ((decimal)dr["programmePayableAmount"]).ToString(AMOUNT_FORMAT_STR);
+                nett = (decimal)dr["programmePayableAmount"];
+
+                if (dr["subsidyId"] != DBNull.Value)
+                {
+                    lbSubsidy.Text = dr["subsidyScheme"].ToString();
+                    lbSubsidyAmt.Text = "(" + ((decimal)dr["subsidyAmt"]).ToString(AMOUNT_FORMAT_STR) + ")";
+                    nett -= (decimal)dr["subsidyAmt"];
+                }
+                else trSubsidy.Visible = false;
+
+                lbGST.Text = "S$" + ((decimal)dr["GSTPayableAmount"]).ToString(AMOUNT_FORMAT_STR);
+                nett += (decimal)dr["GSTPayableAmount"];
+            }
+            if (hfType.Value != PaymentType.PROG.ToString())
+            {
+                if (dr["registrationFee"] != DBNull.Value) 
+                { 
+                    lbRegFee.Text = ((decimal)dr["registrationFee"]).ToString(AMOUNT_FORMAT_STR);
+                    nett += (decimal)dr["registrationFee"];
+                }
+                else lbRegFee.Text = "N/A";
+            }
+
+            if (hfType.Value == PaymentType.REG.ToString())
+            {
+                //if payment is registration, GST is calculation
+                lbGST.Text = "S$" + (Math.Round((decimal)dr["registrationFee"] * General_Constance.GST_RATE, 2)).ToString(AMOUNT_FORMAT_STR);
+                nett += Math.Round((decimal)dr["registrationFee"] * General_Constance.GST_RATE);
+            }
+            
+        }
+
+        //private void loadBatchModules()
+        //{
+        //    DataTable dt = (new Bundle_Management()).getBundleModule(int.Parse(hfBundleId.Value));
+        //    if (dt == null || dt.Rows.Count == 0)
+        //    {
+        //        redirectToErrorPg("Error retrieving programme's modules.");
+        //        return;
+        //    }
+        //    rpModules.DataSource = dt;
+        //    rpModules.DataBind();
+        //}
+    }
+}

@@ -1,0 +1,1 @@
+DO NOT DELETE THIS FOLDER. It is used to stored temporary generated files by TMS.

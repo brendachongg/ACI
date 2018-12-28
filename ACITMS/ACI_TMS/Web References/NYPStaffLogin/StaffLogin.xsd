@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://WSStaffLogin/" targetNamespace="http://WSStaffLogin/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="authStaffPortal" type="tns:authStaffPortal" />
+  <xs:element name="authStaffPortalResponse" type="tns:authStaffPortalResponse" />
+  <xs:element name="getErrMsg" type="tns:getErrMsg" />
+  <xs:element name="getErrMsgResponse" type="tns:getErrMsgResponse" />
+  <xs:element name="getLoginEmpNo" type="tns:getLoginEmpNo" />
+  <xs:element name="getLoginEmpNoResponse" type="tns:getLoginEmpNoResponse" />
+  <xs:element name="getStaffDept" type="tns:getStaffDept" />
+  <xs:element name="getStaffDeptResponse" type="tns:getStaffDeptResponse" />
+  <xs:element name="getStaffInfo" type="tns:getStaffInfo" />
+  <xs:element name="getStaffInfoResponse" type="tns:getStaffInfoResponse" />
+  <xs:element name="valLogin" type="tns:valLogin" />
+  <xs:element name="valLoginByOthers" type="tns:valLoginByOthers" />
+  <xs:element name="valLoginByOthersResponse" type="tns:valLoginByOthersResponse" />
+  <xs:element name="valLoginBySch" type="tns:valLoginBySch" />
+  <xs:element name="valLoginBySchResponse" type="tns:valLoginBySchResponse" />
+  <xs:element name="valLoginEnc" type="tns:valLoginEnc" />
+  <xs:element name="valLoginEncResponse" type="tns:valLoginEncResponse" />
+  <xs:element name="valLoginResponse" type="tns:valLoginResponse" />
+  <xs:complexType name="getStaffInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStaffInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginByOthers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginByOthersResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginEnc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginEncResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginBySch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginBySchResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoginEmpNo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoginEmpNoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valLoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getErrMsg">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getErrMsgResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authStaffPortal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authStaffPortalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStaffDept">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStaffDeptResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -41,7 +41,7 @@ public partial class Registrationtest : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        DataTable ds = 
+       
         //if (!Page.IsValid) return;
 
         //Tuple<bool, string> status = (new Applicant_Management()).registerApplicantQuick(tbFullName.Text, DateTime.ParseExact(tbBirthDate.Text, "dd MMM yyyy", CultureInfo.InvariantCulture),
